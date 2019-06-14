@@ -1,0 +1,9 @@
+#=======================================================
+#Permssion: antibot.update
+Update:
+  Enabled: true
+#Enables if there is a message on-join when the plugin is outdated.
+#=======================================================
+Messages:
+  antiBotCommand: '&3&lAnti-Bot &7&l> &cPlease move before typing a command.'
+  antiBotMessage: '&3&lAnti-Bot &7&l> &cPlease move before typing a message.'

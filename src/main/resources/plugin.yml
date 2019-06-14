@@ -1,0 +1,6 @@
+name: AntiBot
+version: ${project.version}
+main: net.noodles.antibot.antibotmain.AntiBotMain
+authors: [BGHDDevelopment]
+description: AntiBot Plugin
+website: https://bghddevelopment.com
