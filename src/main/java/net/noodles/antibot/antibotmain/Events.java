@@ -10,14 +10,14 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 import java.util.ArrayList;
 
-public class AntiBotEvents implements Listener
+public class Events implements Listener
 {
     private ArrayList<String> move;
 
 
-    private AntiBotMain main;
+    private AntiBot main;
 
-    public AntiBotEvents() {
+    public Events() {
         this.move = new ArrayList<>();
 
     }
@@ -41,7 +41,7 @@ public class AntiBotEvents implements Listener
     public void onCommand(PlayerCommandPreprocessEvent e) {
         if (this.move.contains(e.getPlayer().getName())) {
             e.setCancelled(true);
-            e.getPlayer().sendMessage(AntiBotMain.getPlugin().getConfig().getString("Messages.antiBotCommand").replace("&", "§"));
+            e.getPlayer().sendMessage(AntiBot.getPlugin().getConfig().getString("Messages.antiBotCommand").replace("&", "§"));
         }
     }
     
@@ -49,7 +49,7 @@ public class AntiBotEvents implements Listener
     public void onTalk(AsyncPlayerChatEvent e) {
         if (this.move.contains(e.getPlayer().getName())) {
             e.setCancelled(true);
-            e.getPlayer().sendMessage(AntiBotMain.getPlugin().getConfig().getString("Messages.antiBotMessage").replace("&", "§"));
+            e.getPlayer().sendMessage(AntiBot.getPlugin().getConfig().getString("Messages.antiBotMessage").replace("&", "§"));
         }
     }
 }

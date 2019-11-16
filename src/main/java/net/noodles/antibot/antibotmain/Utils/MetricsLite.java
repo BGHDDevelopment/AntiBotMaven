@@ -1,4 +1,4 @@
-package net.noodles.antibot.antibotmain;
+package net.noodles.antibot.antibotmain.Utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;

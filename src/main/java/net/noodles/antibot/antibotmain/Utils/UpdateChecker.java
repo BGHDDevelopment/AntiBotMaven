@@ -1,17 +1,19 @@
-package net.noodles.antibot.antibotmain;
+package net.noodles.antibot.antibotmain.Utils;
+
+import net.noodles.antibot.antibotmain.AntiBot;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class UpdateCheckerAntiBot
+public class UpdateChecker
 {
-    public AntiBotMain plugin;
+    public AntiBot plugin;
     public String version;
     
     
-    public UpdateCheckerAntiBot(AntiBotMain plugin) {
+    public UpdateChecker(AntiBot plugin) {
         this.plugin = plugin;
         this.version = this.getLatestVersion();
     }

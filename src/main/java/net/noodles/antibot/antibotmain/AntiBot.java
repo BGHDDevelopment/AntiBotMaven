@@ -1,14 +1,18 @@
 package net.noodles.antibot.antibotmain;
 
+import net.noodles.antibot.antibotmain.Utils.Logger;
+import net.noodles.antibot.antibotmain.Utils.MetricsLite;
+import net.noodles.antibot.antibotmain.Utils.Settings;
+import net.noodles.antibot.antibotmain.Utils.UpdateChecker;
 import org.bukkit.plugin.java.*;
 import org.bukkit.event.*;
 import java.io.File;
 
-public class AntiBotMain extends JavaPlugin implements Listener
+public class AntiBot extends JavaPlugin implements Listener
 {
-    public static AntiBotMain plugin;
-    private UpdateCheckerAntiBot checker;
-    private static AntiBotMain instance;
+    public static AntiBot plugin;
+    private UpdateChecker checker;
+    private static AntiBot instance;
 
 
     public void onEnable() {
@@ -21,12 +25,12 @@ public class AntiBotMain extends JavaPlugin implements Listener
         Logger.log(Logger.LogLevel.OUTLINE, "********************");
         Logger.log(Logger.LogLevel.INFO, "Plugin Loading...");
         Logger.log(Logger.LogLevel.INFO, "Registering Managers...");
-        AntiBotMain.plugin = this;
+        AntiBot.plugin = this;
         instance = this;
         MetricsLite metrics = new MetricsLite(this);
         Logger.log(Logger.LogLevel.INFO, "Managers Registered!");
         Logger.log(Logger.LogLevel.INFO, "Registering Listeners...");
-        getServer().getPluginManager().registerEvents(new AntiBotEvents(), this);
+        getServer().getPluginManager().registerEvents(new Events(), this);
         Logger.log(Logger.LogLevel.INFO, "Listeners Registered!");
         Logger.log(Logger.LogLevel.INFO, "Loading Config's...");
         this.createConfig();
@@ -36,7 +40,7 @@ public class AntiBotMain extends JavaPlugin implements Listener
         Logger.log(Logger.LogLevel.OUTLINE, "********************");
         this.setEnabled(true);
         Logger.log(Logger.LogLevel.INFO, "Checking for updates...");
-        this.checker = new UpdateCheckerAntiBot(this);
+        this.checker = new UpdateChecker(this);
         if (this.checker.isConnected()) {
             if (this.checker.hasUpdate()) {
                 Logger.log(Logger.LogLevel.OUTLINE, "********************");
@@ -56,8 +60,8 @@ public class AntiBotMain extends JavaPlugin implements Listener
     public void onDisable() {
     }
 
-    public static AntiBotMain getPlugin() {
-        return (AntiBotMain) getPlugin((Class) AntiBotMain.class);
+    public static AntiBot getPlugin() {
+        return (AntiBot) getPlugin((Class) AntiBot.class);
     }
 
     private void createConfig(){
@@ -75,7 +79,7 @@ public class AntiBotMain extends JavaPlugin implements Listener
     }
 
 
-    public static AntiBotMain getInstance() {
+    public static AntiBot getInstance() {
         return instance;
     }
 

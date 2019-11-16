@@ -1,4 +1,4 @@
-package net.noodles.antibot.antibotmain;
+package net.noodles.antibot.antibotmain.Utils;
 
 public class Settings {
 
